@@ -1,0 +1,11 @@
+nginx upstream status
+=====================
+
+This module provides a handler called upstream_status that can be used as follows:
+
+location /foo {
+	upstream_status;
+}
+
+
+It reports all the upstream blocks configured for this server. For upstreams managed using the round robin (default upstream), it lists all the servers configured in a block and indicates the current status (up/down)
