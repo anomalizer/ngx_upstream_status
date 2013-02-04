@@ -163,7 +163,7 @@ ngx_http_upstream_status_writer(ngx_http_upstream_srv_conf_t *uscfp, ngx_http_re
             ngx_log_error(NGX_LOG_DEBUG, log, 0,
                        "reals: %V %d", &(upstream_round_robin_peer->name), up_down );
 
-            buf = ngx_create_temp_buf(r->pool, 20 + ngx_strlen(&(upstream_round_robin_peer->name)) );
+            buf = ngx_create_temp_buf(r->pool, 20 + (int)upstream_round_robin_peer->name.len );
             buf->last = ngx_sprintf(buf->pos, "<td>%V</td>",  &(upstream_round_robin_peer->name) );
             *out = append_buf_to_chain(r->pool, *out, buf);
 
